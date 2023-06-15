@@ -1,3 +1,12 @@
 def study_schedule(permanence_period, target_time):
-    """Faça o código aqui."""
-    raise NotImplementedError
+    if target_time is None:
+        return None
+
+    count = 0
+
+    for start, end in permanence_period:
+        if not isinstance(start, int) or not isinstance(end, int):
+            return None
+        if target_time in range(start, end + 1):
+            count += 1
+    return count
